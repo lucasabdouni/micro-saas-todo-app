@@ -1,29 +1,29 @@
-'use client';
+'use client'
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { toast } from '@/components/ui/use-toast';
-import { signIn } from 'next-auth/react';
-import { useForm } from 'react-hook-form';
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { toast } from '@/components/ui/use-toast'
+import { signIn } from 'next-auth/react'
+import { useForm } from 'react-hook-form'
 
 export function AuthForm() {
-  const form = useForm();
+  const form = useForm()
 
   const handleSubmit = form.handleSubmit(async (data) => {
     try {
-      await signIn('email', { email: data.email, redirect: false });
+      await signIn('nodemailer', { email: data.email, redirect: false })
       toast({
         title: 'Magic Link Sent',
         description: 'Check yours email for the magic link to login',
-      });
+      })
     } catch (err) {
       toast({
         title: 'Error',
         description: 'An error occurred. Please try again.',
-      });
+      })
     }
-  });
+  })
 
   return (
     <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
@@ -49,8 +49,12 @@ export function AuthForm() {
               {...form.register('email')}
             />
           </div>
-          <Button type="submit" className="w-full">
-            Send magic link
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? 'Sending...' : 'Send magic link'}
           </Button>
         </form>
         <p className="mt-4 text-sm text-muted-foreground">
@@ -59,5 +63,5 @@ export function AuthForm() {
         </p>
       </div>
     </div>
-  );
+  )
 }

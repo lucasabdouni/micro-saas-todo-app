@@ -1,7 +1,7 @@
-import { prisma } from '@/services/database/index';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-import NextAuth from 'next-auth';
-import EmailProvider from 'next-auth/providers/email';
+import { prisma } from '@/services/database/index'
+import { PrismaAdapter } from '@auth/prisma-adapter'
+import NextAuth from 'next-auth'
+import EmailProvider from 'next-auth/providers/nodemailer'
 
 export const { handlers, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -19,4 +19,4 @@ export const { handlers, auth } = NextAuth({
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-});
+})
