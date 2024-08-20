@@ -33,7 +33,7 @@ export function AuthForm() {
             Sign in with a magic link
           </h1>
           <p className="text-muted-foreground">
-            Enter your email below and we'll send you a magic link to sign in.
+            Enter your email below and we ll send you a magic link to sign in.
           </p>
         </div>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
@@ -58,8 +58,8 @@ export function AuthForm() {
           </Button>
         </form>
         <p className="mt-4 text-sm text-muted-foreground">
-          The magic link will expire in 24 hours. If you don't receive it,
-          please check your spam folder or try again.
+          The magic link will expire in 24 hours. If you dont receive it, please
+          check your spam folder or try again.
         </p>
       </div>
     </div>

@@ -60,9 +60,7 @@ export default function MainSidebar({ user }: MainSiderbarProps) {
             <DashboardSidebarNavLink href="/">
               Precisa de ajuda?
             </DashboardSidebarNavLink>
-            <DashboardSidebarNavLink href="/app/settings">
-              Site
-            </DashboardSidebarNavLink>
+            <DashboardSidebarNavLink href="/">Site</DashboardSidebarNavLink>
           </DashboardSidebarNavMain>
         </DashboardSidebarNav>
       </DashboardSidebarMain>
